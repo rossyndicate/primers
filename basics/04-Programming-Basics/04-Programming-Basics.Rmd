@@ -6,7 +6,6 @@ output:
     allow_skip: true
 runtime: shiny_prerendered
 tutorial:
-  id: "com.rstudio.primers.04-programming-basics"
   version: 1.0
 ---
 
@@ -17,27 +16,6 @@ checker <- function(label, user_code, check_code, envir_result, evaluate_result,
   list(message = check_code, correct = TRUE, location = "append")
 }
 tutorial_options(exercise.timelimit = 60, exercise.checker = checker)
-```
-
-```{r, context="server-start", include=FALSE}
-# Capture metrics only if running an official primer hosted by RStudio
-library(curl)
-library(later)
-tryCatch(
-  source("https://metrics.rstudioprimers.com/learnr/installMetrics", local=TRUE), 
-  error = function(e){ 
-    print("Warning: An error occurred with the tracking code.")
-  }
-)
-```
-
-```{r, context = "render", results = 'asis', echo = FALSE}
-tryCatch(
-  source("https://metrics.rstudioprimers.com/learnr/installClient", local=TRUE)$value,
-  error = function(e){ 
-    print("Warning: An error occurred with the client code.")
-  }
-)
 ```
 
 ## Welcome 
