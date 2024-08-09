@@ -6,13 +6,13 @@ Some content in these lessons is also derived from the book: R for Data Science 
 
 **Links to lessons are as follows:**
 
-## Primers Basics:
+## Primers Basics
 
 -   [Programming Basics](https://geocentroid.shinyapps.io/Programming-Basics/)
 
 -   [Visualization Basics](https://geocentroid.shinyapps.io/Vis-Basics/)
 
-## Work with Data:
+## Work with Data
 
 -   [Tibbles](https://geocentroid.shinyapps.io/tibbles/)
 
@@ -20,7 +20,7 @@ Some content in these lessons is also derived from the book: R for Data Science 
 
 -   [Deriving](https://geocentroid.shinyapps.io/deriving/)
 
-## Visualize Data:
+## Visualize Data
 
 -   [Bar Charts](https://geocentroid.shinyapps.io/bar-charts/)
 
@@ -36,7 +36,7 @@ Some content in these lessons is also derived from the book: R for Data Science 
 
 -   [Customize](https://geocentroid.shinyapps.io/Customize/)
 
-## Tidy your Data:
+## Tidy your Data
 
 -   [Reshape](https://geocentroid.shinyapps.io/Reshape-Data/)
 
