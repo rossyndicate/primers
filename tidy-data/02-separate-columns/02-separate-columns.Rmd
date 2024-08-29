@@ -198,7 +198,7 @@ hurricanes %>%
 
 You may have noticed that `separate()` returns its results as columns of character strings. However, in some cases, like ours, the columns will contain integers, doubles, or other types of non-character data.
 
-You can ask `separate()` to convert the new columns to an appropriate data type by adding `convert = TRUE` to your `separate()` call. This is identical to the `convert = TRUE` argument of `gather()`.
+You can ask `separate()` to convert the new columns to an appropriate data type by adding `convert = TRUE` to your `separate()` call.
 
 Identify the data types of `year`, `month`, and `day` (they appear under the column names) in the output below. Then add `convert = TRUE` and re-run the code. What changes?
 
@@ -338,7 +338,7 @@ To make `who` easier to use in R, we should tidy it into the format below. This 
 ```{r}
 who %>%
   select(-iso2, -iso3) %>% 
-  gather("codes", "n", 3:58) %>%
+  pivot_longer(cols = 3:58, names_to = "codes", values_to = "n") %>%
   separate(codes, c("new", "type", "sexage"), sep = "_") %>%
   select(-new) %>%
   separate(sexage, c("sex", "age"), sep = 1) %>%
@@ -376,7 +376,7 @@ knitr::include_graphics("www/images/reshape.png")
 
 ### Exercise - Reshape
 
-Add to the pipe below. Use a tidyr reshaping function to gather the column names into their own column, named "codes". Place the column cells into a column named "n". _Hint: it may be helpful to know that there are now 58 columns in the data set._
+Add to the pipe below. Use a tidyr reshaping function to pivot_longer the column names into their own column, named "codes". Place the column cells into a column named "n". _Hint: it may be helpful to know that there are now 58 columns in the data set._
 
 You can think of each column name as a key that combines the values of several variables. We want to move those keys into their own key column.
 
@@ -388,7 +388,7 @@ who %>%
 ```{r ex11-solution}
 who %>%
   select(-iso2, -iso3) %>% 
-  gather(key = "codes", value = "n", 3:58)
+  pivot_longer(cols = 3:58, names_to = "codes", values_to = "n")
 ```
 
 ```{r ex11-check}
@@ -402,13 +402,13 @@ Add to the pipe below. Separate the codes in `codes` into three columns named "n
 ```{r ex12, exercise = TRUE}
 who %>%
   select(-iso2, -iso3) %>% 
-  gather(key = "codes", value = "n", 3:58) 
+  pivot_longer(3:58, names_to = "codes", values_to = "n") 
 ```
 
 ```{r ex12-solution}
 who %>%
   select(-iso2, -iso3) %>% 
-  gather(key = "codes", value = "n", 3:58) %>% 
+  pivot_longer(3:58, names_to = "codes", values_to = "n") %>% 
   separate(codes, into = c("new", "type", "sexage"), sep = "_")
 ```
 
@@ -425,14 +425,14 @@ If you look closely at the structure of the `sexage` column, you will see that e
 ```{r ex13, exercise = TRUE}
 who %>%
   select(-iso2, -iso3) %>% 
-  gather(key = "codes", value = "n", 3:58) %>% 
+  pivot_longer(3:58, names_to = "codes", values_to = "n") %>% 
   separate(codes, into = c("new", "type", "sexage"), sep = "_")
 ```
 
 ```{r ex13-solution}
 who %>%
   select(-iso2, -iso3) %>% 
-  gather(key = "codes", value = "n", 3:58) %>% 
+  pivot_longer(3:58, names_to = "codes", values_to = "n") %>% 
   separate(codes, into = c("new", "type", "sexage"), sep = "_") %>% 
   separate(sexage, into = c("sex", "age"), sep = 1)
 ```
@@ -449,7 +449,7 @@ Add to the pipe to remove the `new` variable, which doesn't provide any useful i
 ```{r ex14, exercise = TRUE}
 who %>%
   select(-iso2, -iso3) %>% 
-  gather(key = "codes", value = "n", 3:58) %>% 
+  pivot_longer(3:58, names_to = "codes", values_to = "n") %>% 
   separate(codes, into = c("new", "type", "sexage"), sep = "_") %>% 
   separate(sexage, into = c("sex", "age"), sep = 1)
 ```
@@ -457,7 +457,7 @@ who %>%
 ```{r ex14-solution}
 who %>%
   select(-iso2, -iso3) %>% 
-  gather(key = "codes", value = "n", 3:58) %>% 
+  pivot_longer(3:58, names_to = "codes", values_to = "n") %>% 
   separate(codes, into = c("new", "type", "sexage"), sep = "_") %>% 
   separate(sexage, into = c("sex", "age"), sep = 1) %>% 
   select(-new)
@@ -494,7 +494,7 @@ Add `drop_na()` to the pipe below to drop every row that has an NA in the `n` co
 ```{r ex15, exercise = TRUE}
 who %>%
   select(-iso2, -iso3) %>% 
-  gather(key = "codes", value = "n", 3:58) %>% 
+  pivot_longer(3:58, names_to = "codes", values_to = "n") %>% 
   separate(codes, into = c("new", "type", "sexage"), sep = "_") %>% 
   separate(sexage, into = c("sex", "age"), sep = 1) %>% 
   select(-new)
@@ -503,7 +503,7 @@ who %>%
 ```{r ex15-solution}
 who %>%
   select(-iso2, -iso3) %>% 
-  gather(key = "codes", value = "n", 3:58) %>% 
+  pivot_longer(3:58, names_to = "codes", values_to = "n") %>% 
   separate(codes, into = c("new", "type", "sexage"), sep = "_") %>% 
   separate(sexage, into = c("sex", "age"), sep = 1) %>% 
   select(-new) %>% 
