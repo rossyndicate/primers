@@ -121,18 +121,18 @@ formals(xor)
 
 Each function is associated with an R environment. The association tells R how to look up any objects that are used by a function, but not defined in its arguments. We'll learn more about environments later, so you do not need to worry about them now. However, looking up a function's environment is a handy way to tell which package the function comes in.
 
-* Use `environment()` to see the environment associated with the `gather` function.
+* Use `environment()` to see the environment associated with the `pivot_longer` function.
 
 ```{r gather-env, exercise = TRUE}
 
 ```
 
 ```{r gather-env-solution}
-environment(gather)
+environment(pivot_longer)
 ```
 
 ```{r gather-env-check}
-"The gather() function comes in the tidyr package. If a function's environment is namespace:base, that is a good sign that the function comes in base R, the part of R that loads before you load any optional packages."
+"The pivot_longer() function comes in the tidyr package. If a function's environment is namespace:base, that is a good sign that the function comes in base R, the part of R that loads before you load any optional packages."
 ```
 
 ### names
