@@ -208,7 +208,7 @@ function’s body may not be self-contained.</p>
 ## {
 ##     (x | y) &amp; !(x &amp; y)
 ## }
-## &lt;bytecode: 0x111bbc428&gt;
+## &lt;bytecode: 0x1078fbbe0&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 <p>What is <code>x</code>? What is <code>y</code>? Click Continue to
 find out.</p>
@@ -250,7 +250,7 @@ function’s environment is a handy way to tell which package the function
 comes in.</p>
 <ul>
 <li>Use <code>environment()</code> to see the environment associated
-with the <code>gather</code> function.</li>
+with the <code>pivot_longer</code> function.</li>
 </ul>
 <div class="tutorial-exercise" data-label="gather-env"
 data-completion="1" data-diagnostics="1" data-startover="1"
@@ -260,7 +260,7 @@ data-lines="0" data-pipe="|&gt;">
 <div class="tutorial-exercise-support" data-label="gather-env-solution"
 data-completion="1" data-diagnostics="1" data-startover="1"
 data-lines="0" data-pipe="|&gt;">
-<pre class="text"><code>environment(gather)</code></pre>
+<pre class="text"><code>environment(pivot_longer)</code></pre>
 </div>
 </div>
 <div id="section-names" class="section level3">
@@ -277,7 +277,7 @@ full, type <code>xor</code>.</p>
 ## {
 ##     (x | y) &amp; !(x &amp; y)
 ## }
-## &lt;bytecode: 0x111bbc428&gt;
+## &lt;bytecode: 0x1078fbbe0&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 </div>
 <div id="section-help-pages" class="section level3">
@@ -331,10 +331,10 @@ body. Note the difference:</p>
 <pre class="r"><code>Sys.Date</code></pre>
 <pre><code>## function () 
 ## as.Date(as.POSIXlt(Sys.time()))
-## &lt;bytecode: 0x123fd7bb8&gt;
+## &lt;bytecode: 0x12d5e7000&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 <pre class="r"><code>Sys.Date()</code></pre>
-<pre><code>## [1] &quot;2024-08-09&quot;</code></pre>
+<pre><code>## [1] &quot;2024-08-30&quot;</code></pre>
 <p>If you ever try to run a function and nothing happens, double check
 to see if you included the closing parenthesis.</p>
 </div>
@@ -384,7 +384,7 @@ function itself. Do you see them?</p>
 <pre class="r"><code>rnorm</code></pre>
 <pre><code>## function (n, mean = 0, sd = 1) 
 ## .Call(C_rnorm, n, mean, sd)
-## &lt;bytecode: 0x121f1cdb8&gt;
+## &lt;bytecode: 0x107469968&gt;
 ## &lt;environment: namespace:stats&gt;</code></pre>
 </div>
 <div id="section-section-9" class="section level3">
@@ -620,8 +620,8 @@ learnr:::store_exercise_cache(structure(list(label = "gather-env", global_setup 
     setup = NULL, chunks = list(list(label = "gather-env", code = "", 
         opts = list(label = "\"gather-env\"", exercise = "TRUE"), 
         engine = "r")), code_check = NULL, error_check = NULL, 
-    check = structure("\"The gather() function comes in the tidyr package. If a function's environment is namespace:base, that is a good sign that the function comes in base R, the part of R that loads before you load any optional packages.\"", chunk_opts = list(
-        label = "gather-env-check")), solution = structure("environment(gather)", chunk_opts = list(
+    check = structure("\"The pivot_longer() function comes in the tidyr package. If a function's environment is namespace:base, that is a good sign that the function comes in base R, the part of R that loads before you load any optional packages.\"", chunk_opts = list(
+        label = "gather-env-check")), solution = structure("environment(pivot_longer)", chunk_opts = list(
         label = "gather-env-solution")), tests = NULL, options = list(
         eval = FALSE, echo = TRUE, results = "markup", tidy = FALSE, 
         tidy.opts = NULL, collapse = FALSE, prompt = FALSE, comment = NA, 
@@ -648,19 +648,19 @@ learnr:::store_exercise_cache(structure(list(label = "gather-env", global_setup 
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "q1", question = structure("Which of the following is not a part of a function?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_a3786c6", 
+"character")), answers = list(structure(list(id = "lnr_ans_696d516", 
     option = "A name", value = "A name", label = structure("A name", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = structure("That’s right, functions contain a code body, a set of formal arguments, and an environment, but not a name. They just happen to inherit a name from the object they are stored in.", html = TRUE, class = c("html", 
     "character")), type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_4b7e10f", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_f707314", 
     option = "A code body", value = "A code body", label = structure("A code body", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_93b8a2e", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_6935a1b", 
     option = "A (potentially empty) set of formal arguments", 
     value = "A (potentially empty) set of formal arguments", 
     label = structure("A (potentially empty) set of formal arguments", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_77f2c11", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_3b9dc82", 
     option = "An environment", value = "An environment", label = structure("An environment", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -670,7 +670,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "q1-answer", question = "q1"), loading = NULL, random_answer_order = TRUE, 
-    allow_retry = TRUE, seed = 1380432549.35719, options = list()), class = c("learnr_radio", 
+    allow_retry = TRUE, seed = 1417746415.33981, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
 
@@ -721,10 +721,10 @@ learnr:::store_exercise_cache(structure(list(label = "rnorm", global_setup = str
 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "e1", question = structure("Which of these will run the <code>Sys.time<\u002fcode> function?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_a651c83", 
+"character")), answers = list(structure(list(id = "lnr_ans_d1547b3", 
     option = "Sys.time", value = "Sys.time", label = structure("Sys.time", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_7c4053f", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_afedf6f", 
     option = "Sys.time()", value = "Sys.time()", label = structure("Sys.time()", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = structure("The open and closed parentheses tell R to execute the code in the code body of the function stored in the object names Sys.time.", html = TRUE, class = c("html", 
     "character")), type = "literal"), class = c("tutorial_question_answer", 
@@ -735,7 +735,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "e1-answer", question = "e1"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 337498437.84284, options = list()), class = c("learnr_radio", 
+    allow_retry = FALSE, seed = 1491367746.80553, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
  
@@ -787,14 +787,14 @@ learnr:::store_exercise_cache(structure(list(label = "foo", global_setup = struc
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "e3", question = structure("", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_31e0141", 
+"character")), answers = list(structure(list(id = "lnr_ans_e046234", 
     option = "1", value = "1", label = structure("1", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = structure("What happens in a function, stays in the function. foo() will not change the value of a outside of foo().", html = TRUE, class = c("html", 
     "character")), type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_1c58804", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_b622cbe", 
     option = "10", value = "10", label = structure("10", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_677238b", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_775a30c", 
     option = "Running a will return an error.", value = "Running a will return an error.", 
     label = structure("Running a will return an error.", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
@@ -805,7 +805,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "e3-answer", question = "e3"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = TRUE, seed = 2064612512.53859, options = list()), class = c("learnr_radio", 
+    allow_retry = TRUE, seed = 2006131437.06582, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
 </p>

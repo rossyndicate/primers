@@ -259,10 +259,6 @@ question("What are the variables in cases?",
 )
 ```
 
-### A tidy version of 
-
-![](https://vimeo.com/229581273)
-
 ### pivot_longer()
 
 You can use the `pivot_longer()` function in the **tidyr** package to convert wide data to long data. `pivot_longer()` makes datasets longer by **increasing the number of rows and decreasing the number of columns**. Notice that `pivot_longer()` returns a tidy copy of the dataset, but does not alter the original dataset. If you wish to use this copy later, you'll need to save it somewhere.
@@ -434,10 +430,6 @@ question("Which column in pollution contains the values associated with the key 
          allow_retry = TRUE
 )
 ```
-
-### A tidy version of pollution
-
-![](https://vimeo.com/229581273)
 
 ### pivot_wider()
 
