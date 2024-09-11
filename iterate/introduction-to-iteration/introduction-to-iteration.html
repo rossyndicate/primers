@@ -438,6 +438,9 @@ checker <- function(label, user_code, check_code, envir_result, evaluate_result,
 }
 tutorial_options(exercise.timelimit = 60, exercise.checker = checker)
 knitr::opts_chunk$set(error = TRUE, out.width = "100%")
+
+# increase fork limit
+Sys.setenv(TUTORIAL_MAX_FORKED_PROCS=Inf)
 </script>
 
 
@@ -473,34 +476,33 @@ learnr:::store_exercise_cache(structure(list(label = "number", global_setup = st
 "library(tidyverse)", "", "checker <- function(label, user_code, check_code, envir_result, evaluate_result, ...) {", 
 "  list(message = check_code, correct = TRUE, location = \"append\")", 
 "}", "tutorial_options(exercise.timelimit = 60, exercise.checker = checker)", 
-"knitr::opts_chunk$set(error = TRUE, out.width = \"100%\")"), chunk_opts = list(
-    label = "setup", include = FALSE, message = FALSE, warning = FALSE)), 
-    setup = NULL, chunks = list(list(label = "number", code = "1", 
-        opts = list(label = "\"number\"", exercise = "TRUE"), 
-        engine = "r")), code_check = NULL, error_check = NULL, 
-    check = structure("\"Good job. Don't worry, things will soon get harder.\"", chunk_opts = list(
-        label = "number-check")), solution = structure("log(1)", chunk_opts = list(
-        label = "number-solution")), tests = NULL, options = list(
-        eval = FALSE, echo = TRUE, results = "markup", tidy = FALSE, 
-        tidy.opts = NULL, collapse = FALSE, prompt = FALSE, comment = NA, 
-        highlight = FALSE, size = "normalsize", background = "#F7F7F7", 
-        strip.white = TRUE, cache = 0, cache.path = "introduction-to-iteration_cache/html/", 
-        cache.vars = NULL, cache.lazy = TRUE, dependson = NULL, 
-        autodep = FALSE, cache.rebuild = FALSE, fig.keep = "high", 
-        fig.show = "asis", fig.align = "default", fig.path = "introduction-to-iteration_files/figure-html/", 
-        dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
-        fig.width = 6.5, fig.height = 4, fig.env = "figure", 
-        fig.cap = NULL, fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, 
-        fig.pos = "", out.width = "100%", out.height = NULL, 
-        out.extra = NULL, fig.retina = 2, external = TRUE, sanitize = FALSE, 
-        interval = 1, aniopts = "controls,loop", warning = TRUE, 
-        error = TRUE, message = TRUE, render = NULL, ref.label = NULL, 
-        child = NULL, engine = "r", split = FALSE, include = TRUE, 
-        purl = TRUE, max.print = 1000, exercise.timelimit = 60, 
-        exercise.checker = "function (label, user_code, check_code, envir_result, evaluate_result, \n    ...) \n{\n    list(message = check_code, correct = TRUE, location = \"append\")\n}", 
-        label = "number", exercise = TRUE, code = "1", out.width.px = "100%", 
-        out.height.px = 384, params.src = "number, exercise = TRUE", 
-        fig.num = 0, exercise.df_print = "paged"), engine = "r", 
+"knitr::opts_chunk$set(error = TRUE, out.width = \"100%\")", 
+"", "# increase fork limit", "Sys.setenv(TUTORIAL_MAX_FORKED_PROCS=Inf)"
+), chunk_opts = list(label = "setup", include = FALSE, message = FALSE, 
+    warning = FALSE)), setup = NULL, chunks = list(list(label = "number", 
+    code = "1", opts = list(label = "\"number\"", exercise = "TRUE"), 
+    engine = "r")), code_check = NULL, error_check = NULL, check = structure("\"Good job. Don't worry, things will soon get harder.\"", chunk_opts = list(
+    label = "number-check")), solution = structure("log(1)", chunk_opts = list(
+    label = "number-solution")), tests = NULL, options = list(
+    eval = FALSE, echo = TRUE, results = "markup", tidy = FALSE, 
+    tidy.opts = NULL, collapse = FALSE, prompt = FALSE, comment = NA, 
+    highlight = FALSE, size = "normalsize", background = "#F7F7F7", 
+    strip.white = TRUE, cache = 0, cache.path = "introduction-to-iteration_cache/html/", 
+    cache.vars = NULL, cache.lazy = TRUE, dependson = NULL, autodep = FALSE, 
+    cache.rebuild = FALSE, fig.keep = "high", fig.show = "asis", 
+    fig.align = "default", fig.path = "introduction-to-iteration_files/figure-html/", 
+    dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
+    fig.width = 6.5, fig.height = 4, fig.env = "figure", fig.cap = NULL, 
+    fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, fig.pos = "", 
+    out.width = "100%", out.height = NULL, out.extra = NULL, 
+    fig.retina = 2, external = TRUE, sanitize = FALSE, interval = 1, 
+    aniopts = "controls,loop", warning = TRUE, error = TRUE, 
+    message = TRUE, render = NULL, ref.label = NULL, child = NULL, 
+    engine = "r", split = FALSE, include = TRUE, purl = TRUE, 
+    max.print = 1000, exercise.timelimit = 60, exercise.checker = "function (label, user_code, check_code, envir_result, evaluate_result, \n    ...) \n{\n    list(message = check_code, correct = TRUE, location = \"append\")\n}", 
+    label = "number", exercise = TRUE, code = "1", out.width.px = "100%", 
+    out.height.px = 384, params.src = "number, exercise = TRUE", 
+    fig.num = 0, exercise.df_print = "paged"), engine = "r", 
     version = "4"), class = c("r", "tutorial_exercise")))
 </script>
 
@@ -517,12 +519,13 @@ learnr:::store_exercise_cache(structure(list(label = "numbers", global_setup = s
 "library(tidyverse)", "", "checker <- function(label, user_code, check_code, envir_result, evaluate_result, ...) {", 
 "  list(message = check_code, correct = TRUE, location = \"append\")", 
 "}", "tutorial_options(exercise.timelimit = 60, exercise.checker = checker)", 
-"knitr::opts_chunk$set(error = TRUE, out.width = \"100%\")"), chunk_opts = list(
-    label = "setup", include = FALSE, message = FALSE, warning = FALSE)), 
-    setup = NULL, chunks = list(list(label = "numbers", code = "1\n2\n3\n4\n5", 
-        opts = list(label = "\"numbers\"", exercise = "TRUE"), 
-        engine = "r")), code_check = NULL, error_check = NULL, 
-    check = structure(c("\"Nice! You iterated through the numbers, calling log() on them one at a time.", 
+"knitr::opts_chunk$set(error = TRUE, out.width = \"100%\")", 
+"", "# increase fork limit", "Sys.setenv(TUTORIAL_MAX_FORKED_PROCS=Inf)"
+), chunk_opts = list(label = "setup", include = FALSE, message = FALSE, 
+    warning = FALSE)), setup = NULL, chunks = list(list(label = "numbers", 
+    code = "1\n2\n3\n4\n5", opts = list(label = "\"numbers\"", 
+        exercise = "TRUE"), engine = "r")), code_check = NULL, 
+    error_check = NULL, check = structure(c("\"Nice! You iterated through the numbers, calling log() on them one at a time.", 
     "", "But shouldn't your computer do this repetition for you? Why are you using a computer anyways?\""
     ), chunk_opts = list(label = "numbers-check")), solution = structure(c("log(1)", 
     "log(2)", "log(3)", "log(4)", "log(5)"), chunk_opts = list(
@@ -564,12 +567,13 @@ learnr:::store_exercise_cache(structure(list(label = "vectors", global_setup = s
 "library(tidyverse)", "", "checker <- function(label, user_code, check_code, envir_result, evaluate_result, ...) {", 
 "  list(message = check_code, correct = TRUE, location = \"append\")", 
 "}", "tutorial_options(exercise.timelimit = 60, exercise.checker = checker)", 
-"knitr::opts_chunk$set(error = TRUE, out.width = \"100%\")"), chunk_opts = list(
-    label = "setup", include = FALSE, message = FALSE, warning = FALSE)), 
-    setup = NULL, chunks = list(list(label = "vectors", code = "numbers <- c(1, 2, 3, 4, 5)\nlog(numbers)", 
-        opts = list(label = "\"vectors\"", exercise = "TRUE"), 
-        engine = "r")), code_check = NULL, error_check = NULL, 
-    check = structure("\"Vectorization in R works, but there is something that you should know. Click Continue to find out what it is.\"", chunk_opts = list(
+"knitr::opts_chunk$set(error = TRUE, out.width = \"100%\")", 
+"", "# increase fork limit", "Sys.setenv(TUTORIAL_MAX_FORKED_PROCS=Inf)"
+), chunk_opts = list(label = "setup", include = FALSE, message = FALSE, 
+    warning = FALSE)), setup = NULL, chunks = list(list(label = "vectors", 
+    code = "numbers <- c(1, 2, 3, 4, 5)\nlog(numbers)", opts = list(
+        label = "\"vectors\"", exercise = "TRUE"), engine = "r")), 
+    code_check = NULL, error_check = NULL, check = structure("\"Vectorization in R works, but there is something that you should know. Click Continue to find out what it is.\"", chunk_opts = list(
         label = "vectors-check")), solution = NULL, tests = NULL, 
     options = list(eval = FALSE, echo = TRUE, results = "markup", 
         tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
@@ -609,16 +613,18 @@ learnr:::store_exercise_cache(structure(list(label = "lists", global_setup = str
 "library(tidyverse)", "", "checker <- function(label, user_code, check_code, envir_result, evaluate_result, ...) {", 
 "  list(message = check_code, correct = TRUE, location = \"append\")", 
 "}", "tutorial_options(exercise.timelimit = 60, exercise.checker = checker)", 
-"knitr::opts_chunk$set(error = TRUE, out.width = \"100%\")"), chunk_opts = list(
-    label = "setup", include = FALSE, message = FALSE, warning = FALSE)), 
-    setup = NULL, chunks = list(list(label = "lists", code = "list1 <- list(1, 2, 3, 4, 5)\n\nlog(list1)", 
-        opts = list(label = "\"lists\"", exercise = "TRUE"), 
-        engine = "r")), code_check = NULL, error_check = NULL, 
-    check = NULL, solution = NULL, tests = NULL, options = list(
-        eval = FALSE, echo = TRUE, results = "markup", tidy = FALSE, 
-        tidy.opts = NULL, collapse = FALSE, prompt = FALSE, comment = NA, 
-        highlight = FALSE, size = "normalsize", background = "#F7F7F7", 
-        strip.white = TRUE, cache = 0, cache.path = "introduction-to-iteration_cache/html/", 
+"knitr::opts_chunk$set(error = TRUE, out.width = \"100%\")", 
+"", "# increase fork limit", "Sys.setenv(TUTORIAL_MAX_FORKED_PROCS=Inf)"
+), chunk_opts = list(label = "setup", include = FALSE, message = FALSE, 
+    warning = FALSE)), setup = NULL, chunks = list(list(label = "lists", 
+    code = "list1 <- list(1, 2, 3, 4, 5)\n\nlog(list1)", opts = list(
+        label = "\"lists\"", exercise = "TRUE"), engine = "r")), 
+    code_check = NULL, error_check = NULL, check = NULL, solution = NULL, 
+    tests = NULL, options = list(eval = FALSE, echo = TRUE, results = "markup", 
+        tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
+        comment = NA, highlight = FALSE, size = "normalsize", 
+        background = "#F7F7F7", strip.white = TRUE, cache = 0, 
+        cache.path = "introduction-to-iteration_cache/html/", 
         cache.vars = NULL, cache.lazy = TRUE, dependson = NULL, 
         autodep = FALSE, cache.rebuild = FALSE, fig.keep = "high", 
         fig.show = "asis", fig.align = "default", fig.path = "introduction-to-iteration_files/figure-html/", 
@@ -652,10 +658,11 @@ learnr:::store_exercise_cache(structure(list(label = "manual", global_setup = st
 "library(tidyverse)", "", "checker <- function(label, user_code, check_code, envir_result, evaluate_result, ...) {", 
 "  list(message = check_code, correct = TRUE, location = \"append\")", 
 "}", "tutorial_options(exercise.timelimit = 60, exercise.checker = checker)", 
-"knitr::opts_chunk$set(error = TRUE, out.width = \"100%\")"), chunk_opts = list(
-    label = "setup", include = FALSE, message = FALSE, warning = FALSE)), 
-    setup = "list1 <- list(1, 2, 3, 4, 5)", chunks = list(list(
-        label = "manual-setup", code = "list1 <- list(1, 2, 3, 4, 5)", 
+"knitr::opts_chunk$set(error = TRUE, out.width = \"100%\")", 
+"", "# increase fork limit", "Sys.setenv(TUTORIAL_MAX_FORKED_PROCS=Inf)"
+), chunk_opts = list(label = "setup", include = FALSE, message = FALSE, 
+    warning = FALSE)), setup = "list1 <- list(1, 2, 3, 4, 5)", 
+    chunks = list(list(label = "manual-setup", code = "list1 <- list(1, 2, 3, 4, 5)", 
         opts = list(label = "\"manual-setup\""), engine = "r"), 
         list(label = "manual", code = "list1[[1]]\nlist1[[2]]\nlist1[[3]]\nlist1[[4]]\nlist1[[5]]", 
             opts = list(label = "\"manual\"", exercise = "TRUE"), 

@@ -326,6 +326,9 @@ checker <- function(label, user_code, check_code, envir_result, evaluate_result,
 }
 tutorial_options(exercise.timelimit = 60, exercise.checker = checker)
 knitr::opts_chunk$set(error = TRUE, out.width = "100%")
+
+# increase fork limit
+Sys.setenv(TUTORIAL_MAX_FORKED_PROCS=Inf)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
@@ -350,19 +353,19 @@ session$onSessionEnded(function() {
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "methods", question = structure("Which method(s) can you use to match values to arguments? (Check all that apply.)", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_e4b9103", 
+"character")), answers = list(structure(list(id = "lnr_ans_c445810", 
     option = "Complete names (e.g. na.rm = TRUE)", value = "Complete names (e.g. na.rm = TRUE)", 
     label = structure("Complete names (e.g. na.rm = TRUE)", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_ca2c6ed", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_3ff5376", 
     option = "Partial names (e.g. na = TRUE)", value = "Partial names (e.g. na = TRUE)", 
     label = structure("Partial names (e.g. na = TRUE)", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_4a53473", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_c6d811", 
     option = "Numbers (e.g. 2 = TRUE)", value = "Numbers (e.g. 2 = TRUE)", 
     label = structure("Numbers (e.g. 2 = TRUE)", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_5da6777", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_e1683a0", 
     option = "Position (e.g. TRUE)", value = "Position (e.g. TRUE)", 
     label = structure("Position (e.g. TRUE)", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
@@ -373,7 +376,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", lab
 "character")), incorrect = structure("Did you check <em>every<\u002fem> method that works?", html = TRUE, class = c("html", 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "methods-answer", question = "methods"), loading = NULL, 
-    random_answer_order = FALSE, allow_retry = TRUE, seed = 1928938287.60177, 
+    random_answer_order = FALSE, allow_retry = TRUE, seed = 2096319796.02382, 
     options = list()), class = c("learnr_checkbox", "tutorial_question"
 )), session = session)
 </script>
@@ -381,11 +384,11 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", lab
 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "no-args", question = structure("What will <code>foo()<\u002fcode> return?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_bf0b3ac", 
+"character")), answers = list(structure(list(id = "lnr_ans_550c72c", 
     option = "[1] \"aaa\" \"abb\" \"abc\"", value = "[1] \"aaa\" \"abb\" \"abc\"", 
     label = structure("[1] “aaa” “abb” “abc”", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_4e18e51", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_4cdf3b", 
     option = "An error", value = "An error", label = structure("An error", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = structure("<code>foo<\u002fcode> will not be able to find a value for <code>aaa<\u002fcode> (or the rest).", html = TRUE, class = c("html", 
     "character")), type = "literal"), class = c("tutorial_question_answer", 
@@ -396,7 +399,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "no-args-answer", question = "no-args"), loading = NULL, 
-    random_answer_order = FALSE, allow_retry = TRUE, seed = 1088239557.49325, 
+    random_answer_order = FALSE, allow_retry = TRUE, seed = 780627250.136492, 
     options = list()), class = c("learnr_radio", "tutorial_question"
 )), session = session)
 </script>
@@ -404,15 +407,15 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "default-args", 
     question = structure("Now what will <code>foo()<\u002fcode> return?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_3e05ac7", 
+    "character")), answers = list(structure(list(id = "lnr_ans_523f384", 
         option = "[1] \"aaa\" \"abb\" \"abc\"", value = "[1] \"aaa\" \"abb\" \"abc\"", 
         label = structure("[1] “aaa” “abb” “abc”", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_4b33456", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_b130ca2", 
         option = "[1] 1 2 3", value = "[1] 1 2 3", label = structure("[1] 1 2 3", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = structure("An argument with a default value is optional, R will use the default value if you do not provide one.", html = TRUE, class = c("html", 
         "character")), type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_b15daa4", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_e524c7", 
         option = "An error", value = "An error", label = structure("An error", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -423,7 +426,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
     "character")), message = NULL, post_message = NULL), ids = list(
         answer = "default-args-answer", question = "default-args"), 
     loading = NULL, random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 894022946.083688, options = list()), class = c("learnr_radio", 
+    seed = 1370791723.36168, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
 
@@ -431,20 +434,20 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "default-args-2", 
     question = structure("Which of these could you run to see the names and default values of <code>foo<\u002fcode>’s arguments?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_69590b4", 
+    "character")), answers = list(structure(list(id = "lnr_ans_1ada641", 
         option = "`foo`", value = "`foo`", label = structure("<code>foo<\u002fcode>", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_9122222", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_652661a", 
         option = "`?foo`", value = "`?foo`", label = structure("<code>?foo<\u002fcode>", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_4cec4c8", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_85320b5", 
         option = "`formals(foo)`", value = "`formals(foo)`", 
         label = structure("<code>formals(foo)<\u002fcode>", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_e1b1aba", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_35d78e9", 
         option = "`args(foo)`", value = "`args(foo)`", label = structure("<code>args(foo)<\u002fcode>", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_14edec9", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_9caf835", 
         option = "All of the above.", value = "All of the above.", 
         label = structure("All of the above.", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = structure("Each of these will return output that contains <code>foo<\u002fcode>’s argument names and default values (somewhere in the output).", html = TRUE, class = c("html", 
@@ -457,29 +460,29 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
     "character")), message = NULL, post_message = NULL), ids = list(
         answer = "default-args-2-answer", question = "default-args-2"), 
     loading = NULL, random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 239278350.388577, options = list()), class = c("learnr_radio", 
+    seed = 1198175072.44206, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "position-1", question = structure("What will <code>foo(0)<\u002fcode> return?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_398a9f9", 
+"character")), answers = list(structure(list(id = "lnr_ans_32ef89", 
     option = "[1] 1 2 3", value = "[1] 1 2 3", label = structure("[1] 1 2 3", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_ff9a2ba", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_d38b15d", 
     option = "[1] 0 2 3", value = "[1] 0 2 3", label = structure("[1] 0 2 3", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = structure("If you do not provide an argument name in your call, R will match your value to the first unmatched argument name.", html = TRUE, class = c("html", 
     "character")), type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_d35161d", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_c50a620", 
     option = "[1] 1 0 3", value = "[1] 1 0 3", label = structure("[1] 1 0 3", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_87475c", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_26ebf44", 
     option = "[1] 1 2 0", value = "[1] 1 2 0", label = structure("[1] 1 2 0", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_b051a0c", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_8ce9a00", 
     option = "[1] 0 0 0", value = "[1] 0 0 0", label = structure("[1] 0 0 0", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_590662d", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_be7f606", 
     option = "An error", value = "An error", label = structure("An error", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -489,7 +492,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "position-1-answer", question = "position-1"), loading = NULL, 
-    random_answer_order = FALSE, allow_retry = TRUE, seed = 1571973303.76799, 
+    random_answer_order = FALSE, allow_retry = TRUE, seed = 1351538561.87064, 
     options = list()), class = c("learnr_radio", "tutorial_question"
 )), session = session)
 </script>
@@ -497,20 +500,20 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "position-2", question = structure("What will <code>foo(0, 5)<\u002fcode> return?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_f53604a", 
+"character")), answers = list(structure(list(id = "lnr_ans_ae42de0", 
     option = "[1] 1 2 3", value = "[1] 1 2 3", label = structure("[1] 1 2 3", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_4b12ae9", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_5d7431d", 
     option = "[1] 0 5 3", value = "[1] 0 5 3", label = structure("[1] 0 5 3", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = structure("I think you have the hang of position matching.", html = TRUE, class = c("html", 
     "character")), type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_ee4ee47", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_890fdd1", 
     option = "[1] 0 5 0", value = "[1] 0 5 0", label = structure("[1] 0 5 0", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_e3f9619", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_7fc0006", 
     option = "[1] 0 5 5", value = "[1] 0 5 5", label = structure("[1] 0 5 5", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_3024cd1", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_a9bdae8", 
     option = "An error", value = "An error", label = structure("An error", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -520,7 +523,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "position-2-answer", question = "position-2"), loading = NULL, 
-    random_answer_order = FALSE, allow_retry = TRUE, seed = 62783228.9707643, 
+    random_answer_order = FALSE, allow_retry = TRUE, seed = 303588460.358631, 
     options = list()), class = c("learnr_radio", "tutorial_question"
 )), session = session)
 </script>
@@ -528,20 +531,20 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "complete-names", 
     question = structure("What will <code>foo(aaa = 0, abc = 5)<\u002fcode> return?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_fb9295d", 
+    "character")), answers = list(structure(list(id = "lnr_ans_a269f04", 
         option = "[1] 1 2 3", value = "[1] 1 2 3", label = structure("[1] 1 2 3", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_18cd846", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_14d945", 
         option = "[1] 0 5 3", value = "[1] 0 5 3", label = structure("[1] 0 5 3", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_3f59b62", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_fe85230", 
         option = "[1] 0 5 0", value = "[1] 0 5 0", label = structure("[1] 0 5 0", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_6252d7a", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_b583b1d", 
         option = "[1] 0 2 5", value = "[1] 0 2 5", label = structure("[1] 0 2 5", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = structure("Using complete argument names is the easiest way to avoid an error (and to write comprehensible code). But what if you use a partial argument name?", html = TRUE, class = c("html", 
         "character")), type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_57098e5", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_3466434", 
         option = "An error", value = "An error", label = structure("An error", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -552,7 +555,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
     "character")), message = NULL, post_message = NULL), ids = list(
         answer = "complete-names-answer", question = "complete-names"), 
     loading = NULL, random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 1564024210.27169, options = list()), class = c("learnr_radio", 
+    seed = 60735891.9717176, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
 
@@ -560,17 +563,17 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "partial-names", 
     question = structure("What will <code>foo(aa = 0)<\u002fcode> return?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_cac0016", 
+    "character")), answers = list(structure(list(id = "lnr_ans_d53b783", 
         option = "[1] 1 2 3", value = "[1] 1 2 3", label = structure("[1] 1 2 3", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_1c073a7", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_3b280d6", 
         option = "[1] 0 2 3", value = "[1] 0 2 3", label = structure("[1] 0 2 3", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = structure("You do not need to spell out the full argument name, so long as you provide enough of the name to uniquely identify the argument. Here <code>aa<\u002fcode> could only be the beginning of the <code>aaa<\u002fcode> argument.", html = TRUE, class = c("html", 
         "character")), type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_25cba84", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_9bd9cb3", 
         option = "[1] 0 0 0", value = "[1] 0 0 0", label = structure("[1] 0 0 0", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_596db02", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_98df8a9", 
         option = "An error", value = "An error", label = structure("An error", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -581,23 +584,23 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
     "character")), message = NULL, post_message = NULL), ids = list(
         answer = "partial-names-answer", question = "partial-names"), 
     loading = NULL, random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 722117071.163738, options = list()), class = c("learnr_radio", 
+    seed = 1483941913.80899, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "partial-names-2", 
     question = structure("What will <code>foo(a = 0)<\u002fcode> return?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_bea62c0", 
+    "character")), answers = list(structure(list(id = "lnr_ans_2ec670e", 
         option = "[1] 1 2 3", value = "[1] 1 2 3", label = structure("[1] 1 2 3", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_75b2b4d", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_2d033d6", 
         option = "[1] 0 2 3", value = "[1] 0 2 3", label = structure("[1] 0 2 3", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_a15f2c", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_20267e8", 
         option = "[1] 0 0 0", value = "[1] 0 0 0", label = structure("[1] 0 0 0", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_1bafe83", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_dc7d1b7", 
         option = "An error", value = "An error", label = structure("An error", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = structure("Here <code>a<\u002fcode> does not uniquely match an argument name: it is the beginning of all three argument names. R isn’t psychic, so it won’t guess which argument you meant. Instead R returns an error. It’s the right thing to do because it lets you fix your code.", html = TRUE, class = c("html", 
         "character")), type = "literal"), class = c("tutorial_question_answer", 
@@ -609,21 +612,21 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
     "character")), message = NULL, post_message = NULL), ids = list(
         answer = "partial-names-2-answer", question = "partial-names-2"), 
     loading = NULL, random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 1464512537.81803, options = list()), class = c("learnr_radio", 
+    seed = 1773848609.67399, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
 
 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "dots-1", question = structure("What will <code>foodoo(1, 2, 3)<\u002fcode> return?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_6afa5af", 
+"character")), answers = list(structure(list(id = "lnr_ans_faa7c9b", 
     option = "[1] 1 2 3", value = "[1] 1 2 3", label = structure("[1] 1 2 3", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = structure("<code>...<\u002fcode> is a special mechanism for passing arguments. <code>...<\u002fcode> will match any argument not otherwise matched and pass those arguments on as a group. This is a convenient way to pass a set of arguments through to a function in the function body.", html = TRUE, class = c("html", 
     "character")), type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_40dc8f0", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_34a6000", 
     option = "An error.", value = "An error.", label = structure("An error.", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_1569c28", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_92cc635", 
     option = "Oh my goodness! You've broken R!", value = "Oh my goodness! You've broken R!", 
     label = structure("Oh my goodness! You’ve broken R!", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
@@ -634,23 +637,23 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "dots-1-answer", question = "dots-1"), loading = NULL, 
-    random_answer_order = FALSE, allow_retry = TRUE, seed = 79962688.4627645, 
+    random_answer_order = FALSE, allow_retry = TRUE, seed = 1797836801.16282, 
     options = list()), class = c("learnr_radio", "tutorial_question"
 )), session = session)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "dots-2", question = structure("What will <code>foodoo(a = 1, b = 2, c = 3)<\u002fcode> return?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_7087a97", 
+"character")), answers = list(structure(list(id = "lnr_ans_28a332", 
     option = "[1] 1 2 3", value = "[1] 1 2 3", label = structure("[1] 1 2 3", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_a07a419", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_15a0fa0", 
     option = "[1] 1 2 3 _but with the names a b c above the values_", 
     value = "[1] 1 2 3 _but with the names a b c above the values_", 
     label = structure("[1] 1 2 3 <em>but with the names a b c above the values<\u002fem>", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = structure("If you provide names to your values, <code>...<\u002fcode> will capture those as well and pass them on. So here, our code essentially runs <code>c(a = 1, b = 2, c = 3)<\u002fcode>.", html = TRUE, class = c("html", 
     "character")), type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_273172e", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_8695518", 
     option = "An error.", value = "An error.", label = structure("An error.", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -660,7 +663,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "dots-2-answer", question = "dots-2"), loading = NULL, 
-    random_answer_order = FALSE, allow_retry = TRUE, seed = 950820070.55724, 
+    random_answer_order = FALSE, allow_retry = TRUE, seed = 1948359165.59272, 
     options = list()), class = c("learnr_radio", "tutorial_question"
 )), session = session)
 </script>
@@ -668,17 +671,17 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "dots-3", question = structure("What will <code>foodoo(a = 1, b = 2, c = 3)<\u002fcode> return?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_4c2a846", 
+"character")), answers = list(structure(list(id = "lnr_ans_995890", 
     option = "[1] 1 2 3 with the names a b c above the values", 
     value = "[1] 1 2 3 with the names a b c above the values", 
     label = structure("[1] 1 2 3 with the names a b c above the values", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_fc7b0e6", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_9f7eadd", 
     option = "[1] 2 3 with the names b c above the values", value = "[1] 2 3 with the names b c above the values", 
     label = structure("[1] 2 3 with the names b c above the values", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = structure("Remember that <code>...<\u002fcode> only captures <em>unmatched<\u002fem> values. Now that <code>a<\u002fcode> is a formal argument, <code>a = 1<\u002fcode> will be matched to it, leaving <code>b = 2<\u002fcode> and <code>c = 3<\u002fcode> to be captured and passed on.", html = TRUE, class = c("html", 
     "character")), type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_6ce7959", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_fb42e6a", 
     option = "An error.", value = "An error.", label = structure("An error.", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -688,7 +691,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "dots-3-answer", question = "dots-3"), loading = NULL, 
-    random_answer_order = FALSE, allow_retry = TRUE, seed = 45259820.4789243, 
+    random_answer_order = FALSE, allow_retry = TRUE, seed = 1829732624.14796, 
     options = list()), class = c("learnr_radio", "tutorial_question"
 )), session = session)
 </script>

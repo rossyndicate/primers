@@ -208,7 +208,7 @@ function’s body may not be self-contained.</p>
 ## {
 ##     (x | y) &amp; !(x &amp; y)
 ## }
-## &lt;bytecode: 0x1078fbbe0&gt;
+## &lt;bytecode: 0x12bb14158&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 <p>What is <code>x</code>? What is <code>y</code>? Click Continue to
 find out.</p>
@@ -277,7 +277,7 @@ full, type <code>xor</code>.</p>
 ## {
 ##     (x | y) &amp; !(x &amp; y)
 ## }
-## &lt;bytecode: 0x1078fbbe0&gt;
+## &lt;bytecode: 0x12bb14158&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 </div>
 <div id="section-help-pages" class="section level3">
@@ -331,10 +331,10 @@ body. Note the difference:</p>
 <pre class="r"><code>Sys.Date</code></pre>
 <pre><code>## function () 
 ## as.Date(as.POSIXlt(Sys.time()))
-## &lt;bytecode: 0x12d5e7000&gt;
+## &lt;bytecode: 0x1287eb1e0&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 <pre class="r"><code>Sys.Date()</code></pre>
-<pre><code>## [1] &quot;2024-08-30&quot;</code></pre>
+<pre><code>## [1] &quot;2024-09-11&quot;</code></pre>
 <p>If you ever try to run a function and nothing happens, double check
 to see if you included the closing parenthesis.</p>
 </div>
@@ -384,7 +384,7 @@ function itself. Do you see them?</p>
 <pre class="r"><code>rnorm</code></pre>
 <pre><code>## function (n, mean = 0, sd = 1) 
 ## .Call(C_rnorm, n, mean, sd)
-## &lt;bytecode: 0x107469968&gt;
+## &lt;bytecode: 0x12a683658&gt;
 ## &lt;environment: namespace:stats&gt;</code></pre>
 </div>
 <div id="section-section-9" class="section level3">
@@ -492,6 +492,9 @@ checker <- function(label, user_code, check_code, envir_result, evaluate_result,
 }
 tutorial_options(exercise.timelimit = 60, exercise.checker = checker)
 knitr::opts_chunk$set(error = TRUE, out.width = "100%")
+
+# increase fork limit
+Sys.setenv(TUTORIAL_MAX_FORKED_PROCS=Inf)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
@@ -527,34 +530,33 @@ learnr:::store_exercise_cache(structure(list(label = "xor-body", global_setup = 
 "library(tidyverse)", "", "checker <- function(label, user_code, check_code, envir_result, evaluate_result, ...) {", 
 "  list(message = check_code, correct = TRUE, location = \"append\")", 
 "}", "tutorial_options(exercise.timelimit = 60, exercise.checker = checker)", 
-"knitr::opts_chunk$set(error = TRUE, out.width = \"100%\")"), chunk_opts = list(
-    label = "setup", include = FALSE, message = FALSE, warning = FALSE)), 
-    setup = NULL, chunks = list(list(label = "xor-body", code = "", 
-        opts = list(label = "\"xor-body\"", exercise = "TRUE"), 
-        engine = "r")), code_check = NULL, error_check = NULL, 
-    check = structure("\"xor contains one line of code in its body (you can ignore the braces). This isn't always the case. A function can have as many lines of code as it needs in its body. If you don't believe me check out the body for lm. R will run the code in a function's code body each time you call the function; but as you can see, the code in a function's body may not be self-contained. What is x? What is y? Click Continue to find out.\"", chunk_opts = list(
-        label = "xor-body-check")), solution = structure("body(xor)", chunk_opts = list(
-        label = "xor-body-solution")), tests = NULL, options = list(
-        eval = FALSE, echo = TRUE, results = "markup", tidy = FALSE, 
-        tidy.opts = NULL, collapse = FALSE, prompt = FALSE, comment = NA, 
-        highlight = FALSE, size = "normalsize", background = "#F7F7F7", 
-        strip.white = TRUE, cache = 0, cache.path = "function-basics_cache/html/", 
-        cache.vars = NULL, cache.lazy = TRUE, dependson = NULL, 
-        autodep = FALSE, cache.rebuild = FALSE, fig.keep = "high", 
-        fig.show = "asis", fig.align = "default", fig.path = "function-basics_files/figure-html/", 
-        dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
-        fig.width = 6.5, fig.height = 4, fig.env = "figure", 
-        fig.cap = NULL, fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, 
-        fig.pos = "", out.width = "100%", out.height = NULL, 
-        out.extra = NULL, fig.retina = 2, external = TRUE, sanitize = FALSE, 
-        interval = 1, aniopts = "controls,loop", warning = TRUE, 
-        error = TRUE, message = TRUE, render = NULL, ref.label = NULL, 
-        child = NULL, engine = "r", split = FALSE, include = TRUE, 
-        purl = TRUE, max.print = 1000, exercise.timelimit = 60, 
-        exercise.checker = "function (label, user_code, check_code, envir_result, evaluate_result, \n    ...) \n{\n    list(message = check_code, correct = TRUE, location = \"append\")\n}", 
-        label = "xor-body", exercise = TRUE, code = "", out.width.px = "100%", 
-        out.height.px = 384, params.src = "xor-body, exercise = TRUE", 
-        fig.num = 0L, exercise.df_print = "paged"), engine = "r", 
+"knitr::opts_chunk$set(error = TRUE, out.width = \"100%\")", 
+"", "# increase fork limit", "Sys.setenv(TUTORIAL_MAX_FORKED_PROCS=Inf)"
+), chunk_opts = list(label = "setup", include = FALSE, message = FALSE, 
+    warning = FALSE)), setup = NULL, chunks = list(list(label = "xor-body", 
+    code = "", opts = list(label = "\"xor-body\"", exercise = "TRUE"), 
+    engine = "r")), code_check = NULL, error_check = NULL, check = structure("\"xor contains one line of code in its body (you can ignore the braces). This isn't always the case. A function can have as many lines of code as it needs in its body. If you don't believe me check out the body for lm. R will run the code in a function's code body each time you call the function; but as you can see, the code in a function's body may not be self-contained. What is x? What is y? Click Continue to find out.\"", chunk_opts = list(
+    label = "xor-body-check")), solution = structure("body(xor)", chunk_opts = list(
+    label = "xor-body-solution")), tests = NULL, options = list(
+    eval = FALSE, echo = TRUE, results = "markup", tidy = FALSE, 
+    tidy.opts = NULL, collapse = FALSE, prompt = FALSE, comment = NA, 
+    highlight = FALSE, size = "normalsize", background = "#F7F7F7", 
+    strip.white = TRUE, cache = 0, cache.path = "function-basics_cache/html/", 
+    cache.vars = NULL, cache.lazy = TRUE, dependson = NULL, autodep = FALSE, 
+    cache.rebuild = FALSE, fig.keep = "high", fig.show = "asis", 
+    fig.align = "default", fig.path = "function-basics_files/figure-html/", 
+    dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
+    fig.width = 6.5, fig.height = 4, fig.env = "figure", fig.cap = NULL, 
+    fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, fig.pos = "", 
+    out.width = "100%", out.height = NULL, out.extra = NULL, 
+    fig.retina = 2, external = TRUE, sanitize = FALSE, interval = 1, 
+    aniopts = "controls,loop", warning = TRUE, error = TRUE, 
+    message = TRUE, render = NULL, ref.label = NULL, child = NULL, 
+    engine = "r", split = FALSE, include = TRUE, purl = TRUE, 
+    max.print = 1000, exercise.timelimit = 60, exercise.checker = "function (label, user_code, check_code, envir_result, evaluate_result, \n    ...) \n{\n    list(message = check_code, correct = TRUE, location = \"append\")\n}", 
+    label = "xor-body", exercise = TRUE, code = "", out.width.px = "100%", 
+    out.height.px = 384, params.src = "xor-body, exercise = TRUE", 
+    fig.num = 0L, exercise.df_print = "paged"), engine = "r", 
     version = "4"), class = c("r", "tutorial_exercise")))
 </script>
  
@@ -571,34 +573,33 @@ learnr:::store_exercise_cache(structure(list(label = "xor-formals", global_setup
 "library(tidyverse)", "", "checker <- function(label, user_code, check_code, envir_result, evaluate_result, ...) {", 
 "  list(message = check_code, correct = TRUE, location = \"append\")", 
 "}", "tutorial_options(exercise.timelimit = 60, exercise.checker = checker)", 
-"knitr::opts_chunk$set(error = TRUE, out.width = \"100%\")"), chunk_opts = list(
-    label = "setup", include = FALSE, message = FALSE, warning = FALSE)), 
-    setup = NULL, chunks = list(list(label = "xor-formals", code = "", 
-        opts = list(label = "\"xor-formals\"", exercise = "TRUE"), 
-        engine = "r")), code_check = NULL, error_check = NULL, 
-    check = structure("\"A function can have zero, one, or many many formal arguments. Do not be distracted by the $'s that appear before the argument names. Those are an artifact of how R displays lists.\"", chunk_opts = list(
-        label = "xor-formals-check")), solution = structure("formals(xor)", chunk_opts = list(
-        label = "xor-formals-solution")), tests = NULL, options = list(
-        eval = FALSE, echo = TRUE, results = "markup", tidy = FALSE, 
-        tidy.opts = NULL, collapse = FALSE, prompt = FALSE, comment = NA, 
-        highlight = FALSE, size = "normalsize", background = "#F7F7F7", 
-        strip.white = TRUE, cache = 0, cache.path = "function-basics_cache/html/", 
-        cache.vars = NULL, cache.lazy = TRUE, dependson = NULL, 
-        autodep = FALSE, cache.rebuild = FALSE, fig.keep = "high", 
-        fig.show = "asis", fig.align = "default", fig.path = "function-basics_files/figure-html/", 
-        dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
-        fig.width = 6.5, fig.height = 4, fig.env = "figure", 
-        fig.cap = NULL, fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, 
-        fig.pos = "", out.width = "100%", out.height = NULL, 
-        out.extra = NULL, fig.retina = 2, external = TRUE, sanitize = FALSE, 
-        interval = 1, aniopts = "controls,loop", warning = TRUE, 
-        error = TRUE, message = TRUE, render = NULL, ref.label = NULL, 
-        child = NULL, engine = "r", split = FALSE, include = TRUE, 
-        purl = TRUE, max.print = 1000, exercise.timelimit = 60, 
-        exercise.checker = "function (label, user_code, check_code, envir_result, evaluate_result, \n    ...) \n{\n    list(message = check_code, correct = TRUE, location = \"append\")\n}", 
-        label = "xor-formals", exercise = TRUE, code = "", out.width.px = "100%", 
-        out.height.px = 384, params.src = "xor-formals, exercise = TRUE", 
-        fig.num = 0L, exercise.df_print = "paged"), engine = "r", 
+"knitr::opts_chunk$set(error = TRUE, out.width = \"100%\")", 
+"", "# increase fork limit", "Sys.setenv(TUTORIAL_MAX_FORKED_PROCS=Inf)"
+), chunk_opts = list(label = "setup", include = FALSE, message = FALSE, 
+    warning = FALSE)), setup = NULL, chunks = list(list(label = "xor-formals", 
+    code = "", opts = list(label = "\"xor-formals\"", exercise = "TRUE"), 
+    engine = "r")), code_check = NULL, error_check = NULL, check = structure("\"A function can have zero, one, or many many formal arguments. Do not be distracted by the $'s that appear before the argument names. Those are an artifact of how R displays lists.\"", chunk_opts = list(
+    label = "xor-formals-check")), solution = structure("formals(xor)", chunk_opts = list(
+    label = "xor-formals-solution")), tests = NULL, options = list(
+    eval = FALSE, echo = TRUE, results = "markup", tidy = FALSE, 
+    tidy.opts = NULL, collapse = FALSE, prompt = FALSE, comment = NA, 
+    highlight = FALSE, size = "normalsize", background = "#F7F7F7", 
+    strip.white = TRUE, cache = 0, cache.path = "function-basics_cache/html/", 
+    cache.vars = NULL, cache.lazy = TRUE, dependson = NULL, autodep = FALSE, 
+    cache.rebuild = FALSE, fig.keep = "high", fig.show = "asis", 
+    fig.align = "default", fig.path = "function-basics_files/figure-html/", 
+    dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
+    fig.width = 6.5, fig.height = 4, fig.env = "figure", fig.cap = NULL, 
+    fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, fig.pos = "", 
+    out.width = "100%", out.height = NULL, out.extra = NULL, 
+    fig.retina = 2, external = TRUE, sanitize = FALSE, interval = 1, 
+    aniopts = "controls,loop", warning = TRUE, error = TRUE, 
+    message = TRUE, render = NULL, ref.label = NULL, child = NULL, 
+    engine = "r", split = FALSE, include = TRUE, purl = TRUE, 
+    max.print = 1000, exercise.timelimit = 60, exercise.checker = "function (label, user_code, check_code, envir_result, evaluate_result, \n    ...) \n{\n    list(message = check_code, correct = TRUE, location = \"append\")\n}", 
+    label = "xor-formals", exercise = TRUE, code = "", out.width.px = "100%", 
+    out.height.px = 384, params.src = "xor-formals, exercise = TRUE", 
+    fig.num = 0L, exercise.df_print = "paged"), engine = "r", 
     version = "4"), class = c("r", "tutorial_exercise")))
 </script>
  
@@ -615,52 +616,51 @@ learnr:::store_exercise_cache(structure(list(label = "gather-env", global_setup 
 "library(tidyverse)", "", "checker <- function(label, user_code, check_code, envir_result, evaluate_result, ...) {", 
 "  list(message = check_code, correct = TRUE, location = \"append\")", 
 "}", "tutorial_options(exercise.timelimit = 60, exercise.checker = checker)", 
-"knitr::opts_chunk$set(error = TRUE, out.width = \"100%\")"), chunk_opts = list(
-    label = "setup", include = FALSE, message = FALSE, warning = FALSE)), 
-    setup = NULL, chunks = list(list(label = "gather-env", code = "", 
-        opts = list(label = "\"gather-env\"", exercise = "TRUE"), 
-        engine = "r")), code_check = NULL, error_check = NULL, 
-    check = structure("\"The pivot_longer() function comes in the tidyr package. If a function's environment is namespace:base, that is a good sign that the function comes in base R, the part of R that loads before you load any optional packages.\"", chunk_opts = list(
-        label = "gather-env-check")), solution = structure("environment(pivot_longer)", chunk_opts = list(
-        label = "gather-env-solution")), tests = NULL, options = list(
-        eval = FALSE, echo = TRUE, results = "markup", tidy = FALSE, 
-        tidy.opts = NULL, collapse = FALSE, prompt = FALSE, comment = NA, 
-        highlight = FALSE, size = "normalsize", background = "#F7F7F7", 
-        strip.white = TRUE, cache = 0, cache.path = "function-basics_cache/html/", 
-        cache.vars = NULL, cache.lazy = TRUE, dependson = NULL, 
-        autodep = FALSE, cache.rebuild = FALSE, fig.keep = "high", 
-        fig.show = "asis", fig.align = "default", fig.path = "function-basics_files/figure-html/", 
-        dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
-        fig.width = 6.5, fig.height = 4, fig.env = "figure", 
-        fig.cap = NULL, fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, 
-        fig.pos = "", out.width = "100%", out.height = NULL, 
-        out.extra = NULL, fig.retina = 2, external = TRUE, sanitize = FALSE, 
-        interval = 1, aniopts = "controls,loop", warning = TRUE, 
-        error = TRUE, message = TRUE, render = NULL, ref.label = NULL, 
-        child = NULL, engine = "r", split = FALSE, include = TRUE, 
-        purl = TRUE, max.print = 1000, exercise.timelimit = 60, 
-        exercise.checker = "function (label, user_code, check_code, envir_result, evaluate_result, \n    ...) \n{\n    list(message = check_code, correct = TRUE, location = \"append\")\n}", 
-        label = "gather-env", exercise = TRUE, code = "", out.width.px = "100%", 
-        out.height.px = 384, params.src = "gather-env, exercise = TRUE", 
-        fig.num = 0L, exercise.df_print = "paged"), engine = "r", 
+"knitr::opts_chunk$set(error = TRUE, out.width = \"100%\")", 
+"", "# increase fork limit", "Sys.setenv(TUTORIAL_MAX_FORKED_PROCS=Inf)"
+), chunk_opts = list(label = "setup", include = FALSE, message = FALSE, 
+    warning = FALSE)), setup = NULL, chunks = list(list(label = "gather-env", 
+    code = "", opts = list(label = "\"gather-env\"", exercise = "TRUE"), 
+    engine = "r")), code_check = NULL, error_check = NULL, check = structure("\"The pivot_longer() function comes in the tidyr package. If a function's environment is namespace:base, that is a good sign that the function comes in base R, the part of R that loads before you load any optional packages.\"", chunk_opts = list(
+    label = "gather-env-check")), solution = structure("environment(pivot_longer)", chunk_opts = list(
+    label = "gather-env-solution")), tests = NULL, options = list(
+    eval = FALSE, echo = TRUE, results = "markup", tidy = FALSE, 
+    tidy.opts = NULL, collapse = FALSE, prompt = FALSE, comment = NA, 
+    highlight = FALSE, size = "normalsize", background = "#F7F7F7", 
+    strip.white = TRUE, cache = 0, cache.path = "function-basics_cache/html/", 
+    cache.vars = NULL, cache.lazy = TRUE, dependson = NULL, autodep = FALSE, 
+    cache.rebuild = FALSE, fig.keep = "high", fig.show = "asis", 
+    fig.align = "default", fig.path = "function-basics_files/figure-html/", 
+    dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
+    fig.width = 6.5, fig.height = 4, fig.env = "figure", fig.cap = NULL, 
+    fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, fig.pos = "", 
+    out.width = "100%", out.height = NULL, out.extra = NULL, 
+    fig.retina = 2, external = TRUE, sanitize = FALSE, interval = 1, 
+    aniopts = "controls,loop", warning = TRUE, error = TRUE, 
+    message = TRUE, render = NULL, ref.label = NULL, child = NULL, 
+    engine = "r", split = FALSE, include = TRUE, purl = TRUE, 
+    max.print = 1000, exercise.timelimit = 60, exercise.checker = "function (label, user_code, check_code, envir_result, evaluate_result, \n    ...) \n{\n    list(message = check_code, correct = TRUE, location = \"append\")\n}", 
+    label = "gather-env", exercise = TRUE, code = "", out.width.px = "100%", 
+    out.height.px = 384, params.src = "gather-env, exercise = TRUE", 
+    fig.num = 0L, exercise.df_print = "paged"), engine = "r", 
     version = "4"), class = c("r", "tutorial_exercise")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "q1", question = structure("Which of the following is not a part of a function?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_696d516", 
+"character")), answers = list(structure(list(id = "lnr_ans_44ec3", 
     option = "A name", value = "A name", label = structure("A name", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = structure("That’s right, functions contain a code body, a set of formal arguments, and an environment, but not a name. They just happen to inherit a name from the object they are stored in.", html = TRUE, class = c("html", 
     "character")), type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_f707314", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_7ad5adb", 
     option = "A code body", value = "A code body", label = structure("A code body", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_6935a1b", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_6e722b0", 
     option = "A (potentially empty) set of formal arguments", 
     value = "A (potentially empty) set of formal arguments", 
     label = structure("A (potentially empty) set of formal arguments", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_3b9dc82", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_d6d8452", 
     option = "An environment", value = "An environment", label = structure("An environment", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -670,7 +670,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "q1-answer", question = "q1"), loading = NULL, random_answer_order = TRUE, 
-    allow_retry = TRUE, seed = 1417746415.33981, options = list()), class = c("learnr_radio", 
+    allow_retry = TRUE, seed = 646328597.19903, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
 
@@ -687,44 +687,43 @@ learnr:::store_exercise_cache(structure(list(label = "rnorm", global_setup = str
 "library(tidyverse)", "", "checker <- function(label, user_code, check_code, envir_result, evaluate_result, ...) {", 
 "  list(message = check_code, correct = TRUE, location = \"append\")", 
 "}", "tutorial_options(exercise.timelimit = 60, exercise.checker = checker)", 
-"knitr::opts_chunk$set(error = TRUE, out.width = \"100%\")"), chunk_opts = list(
-    label = "setup", include = FALSE, message = FALSE, warning = FALSE)), 
-    setup = NULL, chunks = list(list(label = "rnorm", code = "", 
-        opts = list(label = "\"rnorm\"", exercise = "TRUE"), 
-        engine = "r")), code_check = NULL, error_check = NULL, 
-    check = structure("\"rnorm provides a default value of zero for the mean argument and a default argument of one for the sd argument. In other words, if you do not supply a mean and sd value when you call rnorm, rnorm will randomly generate results from a standard normal distribution. Default values can be very handy!\"", chunk_opts = list(
-        label = "rnorm-check")), solution = structure("formals(rnorm)", chunk_opts = list(
-        label = "rnorm-solution")), tests = NULL, options = list(
-        eval = FALSE, echo = TRUE, results = "markup", tidy = FALSE, 
-        tidy.opts = NULL, collapse = FALSE, prompt = FALSE, comment = NA, 
-        highlight = FALSE, size = "normalsize", background = "#F7F7F7", 
-        strip.white = TRUE, cache = 0, cache.path = "function-basics_cache/html/", 
-        cache.vars = NULL, cache.lazy = TRUE, dependson = NULL, 
-        autodep = FALSE, cache.rebuild = FALSE, fig.keep = "high", 
-        fig.show = "asis", fig.align = "default", fig.path = "function-basics_files/figure-html/", 
-        dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
-        fig.width = 6.5, fig.height = 4, fig.env = "figure", 
-        fig.cap = NULL, fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, 
-        fig.pos = "", out.width = "100%", out.height = NULL, 
-        out.extra = NULL, fig.retina = 2, external = TRUE, sanitize = FALSE, 
-        interval = 1, aniopts = "controls,loop", warning = TRUE, 
-        error = TRUE, message = TRUE, render = NULL, ref.label = NULL, 
-        child = NULL, engine = "r", split = FALSE, include = TRUE, 
-        purl = TRUE, max.print = 1000, exercise.timelimit = 60, 
-        exercise.checker = "function (label, user_code, check_code, envir_result, evaluate_result, \n    ...) \n{\n    list(message = check_code, correct = TRUE, location = \"append\")\n}", 
-        label = "rnorm", exercise = TRUE, code = "", out.width.px = "100%", 
-        out.height.px = 384, params.src = "rnorm, exercise = TRUE", 
-        fig.num = 0L, exercise.df_print = "paged"), engine = "r", 
+"knitr::opts_chunk$set(error = TRUE, out.width = \"100%\")", 
+"", "# increase fork limit", "Sys.setenv(TUTORIAL_MAX_FORKED_PROCS=Inf)"
+), chunk_opts = list(label = "setup", include = FALSE, message = FALSE, 
+    warning = FALSE)), setup = NULL, chunks = list(list(label = "rnorm", 
+    code = "", opts = list(label = "\"rnorm\"", exercise = "TRUE"), 
+    engine = "r")), code_check = NULL, error_check = NULL, check = structure("\"rnorm provides a default value of zero for the mean argument and a default argument of one for the sd argument. In other words, if you do not supply a mean and sd value when you call rnorm, rnorm will randomly generate results from a standard normal distribution. Default values can be very handy!\"", chunk_opts = list(
+    label = "rnorm-check")), solution = structure("formals(rnorm)", chunk_opts = list(
+    label = "rnorm-solution")), tests = NULL, options = list(
+    eval = FALSE, echo = TRUE, results = "markup", tidy = FALSE, 
+    tidy.opts = NULL, collapse = FALSE, prompt = FALSE, comment = NA, 
+    highlight = FALSE, size = "normalsize", background = "#F7F7F7", 
+    strip.white = TRUE, cache = 0, cache.path = "function-basics_cache/html/", 
+    cache.vars = NULL, cache.lazy = TRUE, dependson = NULL, autodep = FALSE, 
+    cache.rebuild = FALSE, fig.keep = "high", fig.show = "asis", 
+    fig.align = "default", fig.path = "function-basics_files/figure-html/", 
+    dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
+    fig.width = 6.5, fig.height = 4, fig.env = "figure", fig.cap = NULL, 
+    fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, fig.pos = "", 
+    out.width = "100%", out.height = NULL, out.extra = NULL, 
+    fig.retina = 2, external = TRUE, sanitize = FALSE, interval = 1, 
+    aniopts = "controls,loop", warning = TRUE, error = TRUE, 
+    message = TRUE, render = NULL, ref.label = NULL, child = NULL, 
+    engine = "r", split = FALSE, include = TRUE, purl = TRUE, 
+    max.print = 1000, exercise.timelimit = 60, exercise.checker = "function (label, user_code, check_code, envir_result, evaluate_result, \n    ...) \n{\n    list(message = check_code, correct = TRUE, location = \"append\")\n}", 
+    label = "rnorm", exercise = TRUE, code = "", out.width.px = "100%", 
+    out.height.px = 384, params.src = "rnorm, exercise = TRUE", 
+    fig.num = 0L, exercise.df_print = "paged"), engine = "r", 
     version = "4"), class = c("r", "tutorial_exercise")))
 </script>
 
 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "e1", question = structure("Which of these will run the <code>Sys.time<\u002fcode> function?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_d1547b3", 
+"character")), answers = list(structure(list(id = "lnr_ans_cdff79f", 
     option = "Sys.time", value = "Sys.time", label = structure("Sys.time", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_afedf6f", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_b369aef", 
     option = "Sys.time()", value = "Sys.time()", label = structure("Sys.time()", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = structure("The open and closed parentheses tell R to execute the code in the code body of the function stored in the object names Sys.time.", html = TRUE, class = c("html", 
     "character")), type = "literal"), class = c("tutorial_question_answer", 
@@ -735,7 +734,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "e1-answer", question = "e1"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 1491367746.80553, options = list()), class = c("learnr_radio", 
+    allow_retry = FALSE, seed = 52052498.4757612, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
  
@@ -752,11 +751,12 @@ learnr:::store_exercise_cache(structure(list(label = "foo", global_setup = struc
 "library(tidyverse)", "", "checker <- function(label, user_code, check_code, envir_result, evaluate_result, ...) {", 
 "  list(message = check_code, correct = TRUE, location = \"append\")", 
 "}", "tutorial_options(exercise.timelimit = 60, exercise.checker = checker)", 
-"knitr::opts_chunk$set(error = TRUE, out.width = \"100%\")"), chunk_opts = list(
-    label = "setup", include = FALSE, message = FALSE, warning = FALSE)), 
-    setup = "foo <- function() {\n  a <- 10\n  a\n}", chunks = list(
-        list(label = "foo-setup", code = "foo <- function() {\n  a <- 10\n  a\n}", 
-            opts = list(label = "\"foo-setup\""), engine = "r"), 
+"knitr::opts_chunk$set(error = TRUE, out.width = \"100%\")", 
+"", "# increase fork limit", "Sys.setenv(TUTORIAL_MAX_FORKED_PROCS=Inf)"
+), chunk_opts = list(label = "setup", include = FALSE, message = FALSE, 
+    warning = FALSE)), setup = "foo <- function() {\n  a <- 10\n  a\n}", 
+    chunks = list(list(label = "foo-setup", code = "foo <- function() {\n  a <- 10\n  a\n}", 
+        opts = list(label = "\"foo-setup\""), engine = "r"), 
         list(label = "foo", code = "", opts = list(label = "\"foo\"", 
             exercise = "TRUE"), engine = "r")), code_check = NULL, 
     error_check = NULL, check = structure("\"\"", chunk_opts = list(
@@ -787,14 +787,14 @@ learnr:::store_exercise_cache(structure(list(label = "foo", global_setup = struc
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "e3", question = structure("", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_e046234", 
+"character")), answers = list(structure(list(id = "lnr_ans_f4e24d4", 
     option = "1", value = "1", label = structure("1", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = structure("What happens in a function, stays in the function. foo() will not change the value of a outside of foo().", html = TRUE, class = c("html", 
     "character")), type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_b622cbe", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_35d665", 
     option = "10", value = "10", label = structure("10", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_775a30c", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_ad11a12", 
     option = "Running a will return an error.", value = "Running a will return an error.", 
     label = structure("Running a will return an error.", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
@@ -805,7 +805,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "e3-answer", question = "e3"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = TRUE, seed = 2006131437.06582, options = list()), class = c("learnr_radio", 
+    allow_retry = TRUE, seed = 1862529191.63269, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
 </p>
