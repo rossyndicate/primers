@@ -182,7 +182,7 @@ list1 <- list(1, 2, 3, 4, 5)
 ```
 
 ```{r map2-check}
-"The code first took the log of each element with log(). It then rounded each answer to the nearest integer with round()."
+"The code first took the natural log of each element with log(). It then rounded each answer to the nearest integer with round()."
 ```
 
 ## Inputs and Outputs

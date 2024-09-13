@@ -30,7 +30,7 @@ Sys.setenv(TUTORIAL_MAX_FORKED_PROCS=Inf)
 
 Here is a number. You can do many things with it, like this:  
 
-* Take the log of the number. Then click Submit Answer.
+* Take the natural log of the number with `log()`. Then click Submit Answer.
 
 ```{r number, exercise = TRUE}
 1
@@ -41,7 +41,7 @@ log(1)
 ```
 
 ```{r number-hint}
-"You can take the log with `log()`"
+"You can take the natural log with `log()`"
 ```
 
 ```{r number-check}
@@ -52,7 +52,7 @@ log(1)
 
 Here are many numbers. What if you want to do things with them? Go ahead: 
 
-* Take the log of each. Don't get fancy.
+* Take the natural log of each. Don't get fancy.
 
 ```{r numbers, exercise = TRUE}
 1
