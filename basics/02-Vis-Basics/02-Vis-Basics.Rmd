@@ -17,6 +17,9 @@ checker <- function(label, user_code, check_code, envir_result, evaluate_result,
   list(message = check_code, correct = TRUE, location = "append")
 }
 tutorial_options(exercise.timelimit = 60, exercise.checker = checker)
+
+# increase fork limit
+Sys.setenv(TUTORIAL_MAX_FORKED_PROCS=Inf)
 ```
 
 
