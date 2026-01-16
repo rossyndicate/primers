@@ -4,6 +4,8 @@ This repository hosts `learnr` lessons adapted from the [RStudio Cloud Primers](
 
 Some content in these lessons is also derived from the book: R for Data Science from O'Reilly Media, Inc. Copyright © 2017 Garrett Grolemund, Hadley Wickham. Used with permission.
 
+The course **R Markdown Lesson** is *not* an adapted R Primers lesson, and content can be found here: [https://rmarkdown.rstudio.com/lesson-1.html](https://rmarkdown.rstudio.com/lesson-1.html)
+
 **Links to lessons are as follows:**
 
 ## Primers Basics
