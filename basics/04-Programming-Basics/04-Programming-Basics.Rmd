@@ -35,9 +35,6 @@ R is easiest to use when you know how the R language works. This tutorial will t
 
 ## Functions 
 
-### Functions
-
-![](https://vimeo.com/220490105)
 
 ### Run a function
 
@@ -110,9 +107,7 @@ sqrt(961)
 
 ## Arguments
 
-### Arguments
 
-![](https://vimeo.com/220490157)
 
 ### args()
 
@@ -167,9 +162,7 @@ rnorm(100, mean = 100, sd = 50)
 
 ## Objects
 
-### Objects
 
-![](https://vimeo.com/220493412)
 
 ### Object names
 
@@ -259,9 +252,7 @@ iris
 
 ## Vectors
 
-### Vectors
 
-![](https://vimeo.com/220490316)
 
 ### Create a vector
 
@@ -357,9 +348,7 @@ Predict what the code below will return. Then look at the result.
 
 ## Types
 
-### Types
 
-![](https://vimeo.com/220490241)
 
 ### Atomic types
 
@@ -442,9 +431,7 @@ question('Which of these are object names? What is the difference between object
 
 ## Lists 
 
-### Lists
 
-![](https://vimeo.com/220490360)
 
 ### Lists vs. vectors
 
@@ -519,9 +506,7 @@ df$strings
 
 ## Packages
 
-### Packages
 
-![](https://vimeo.com/220490447)
 
 ### A common error
 
